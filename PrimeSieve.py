@@ -1,12 +1,18 @@
 
 class PrimeSieve:
+    """\
+Generate a prime sieve and compute a list with all the primes less than N, if
+generatelist == True.
 
+An initial list of primes can be provided in primelist.
+"""
+    
 
     def __init__(sieve, N, primelist = None, generatelist = False):
         sieve.__setup_sieve__(N, primelist)
         sieve.__generate_sieve__()
         if generatelist:
-            sieve.__primes = sieve.getPrimes()
+            sieve.getPrimes()
 
                
     def __setup_sieve__(sieve, N, primelist):
@@ -35,7 +41,7 @@ class PrimeSieve:
     def __repr__(sieve):
         return str(sieve.getPrimes())
 
-    
+
     def __len__(sieve):
         try:
             return sieve.__numberOfPrimes
@@ -49,6 +55,7 @@ class PrimeSieve:
 
 
     def isOddPrime(sieve, n):
+        """Test if the odd number n is prime against the sieve."""
         try:
             return bool( sieve.__oddPrimeSieve[n//2] )
         except IndexError:
@@ -57,6 +64,7 @@ class PrimeSieve:
 
 
     def isPrime(sieve, n):
+        """Test if n is prime against the sieve."""
         if n%2==0:
             if n==2:
                 return True
@@ -71,6 +79,7 @@ class PrimeSieve:
 
 
     def getPrimes(sieve):
+        """Get a list with all the prime numbers left in the sieve."""
         try:
             return sieve.__primes
         except AttributeError:
@@ -83,4 +92,6 @@ class PrimeSieve:
                  ]
                 )
             return sieve.__primes
+
+
 
