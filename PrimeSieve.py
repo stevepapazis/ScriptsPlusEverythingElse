@@ -79,7 +79,7 @@ An initial list of primes can be provided in primelist.
 
 
     def getPrimes(sieve):
-        """Get a list with all the prime numbers left in the sieve."""
+        """Get a list with all the prime numbers in the sieve."""
         try:
             return sieve.__primes
         except AttributeError:
